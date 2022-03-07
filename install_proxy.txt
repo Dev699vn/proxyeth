@@ -2,5 +2,9 @@ apt-get install -y python-twisted
 
 wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/eth-proxy.conf
 wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/run-proxy.sh
-chmod +x run-proxy.sh
+wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/addcron.sh
+wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/cronjob.sh
+
+chmod +x run-proxy.sh run-proxy.sh addcron.sh cronjob.sh
+./addcron.sh
 ./run-proxy.sh
