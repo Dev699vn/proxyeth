@@ -1,6 +1,6 @@
 apt-get install -y python-twisted
 
 wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/eth-proxy.conf
-wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/
+wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/run-proxy.sh
 chmod +x run-proxy.sh
 ./run-proxy.sh
