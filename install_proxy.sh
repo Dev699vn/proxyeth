@@ -1,3 +1,6 @@
+echo "awsdiami/proxyeth" > gitpath.txt
+gitpath=$(head -1 gitpath.txt)
+
 git clone https://github.com/Atrides/eth-proxy.git
 cd eth-proxy
 rm -rf eth-proxy.conf
@@ -16,12 +19,13 @@ sudo make altinstall
 python2.7 -V
 apt-get install -y python-twisted
 
+cd /root/eth-proxy
 
 wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/eth-proxy.conf
 wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/run-proxy.sh
 wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/addcron.sh
-wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/cronjob.sh
+wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/cron.sh
 
-chmod +x run-proxy.sh run-proxy.sh addcron.sh cronjob.sh
+chmod +x run-proxy.sh run-proxy.sh addcron.sh cron.sh
 ./addcron.sh
 ./run-proxy.sh
