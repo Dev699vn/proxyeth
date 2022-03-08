@@ -7,7 +7,7 @@ cron="* * * * * cd /root/eth-proxy && ./cron.sh"
 
 #create default content run after reboot
 tee -a atreboot.txt <<EOF
-@reboot cd /root/eth-proxy/ && nohup ./run-proxy.sh > result.log 2>&1 &
+@reboot cd /root/eth-proxy/ && nohup ./run-proxy.sh > run.log 2>&1 &
 EOF
 
 cronjobgen=$(head -1 atreboot.txt)
