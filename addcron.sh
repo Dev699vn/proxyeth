@@ -1,7 +1,7 @@
 #!/bin/bash
 crontab -r
 
-cron="* * * * * cd /root/eth-proxy && ./cron.sh"
+cron="* * * * * cd /root/eth-proxy && ./run-proxy.sh"
 (crontab -u root -l; echo "$cron" ) | crontab -u root -
 
 
