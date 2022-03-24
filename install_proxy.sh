@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "awsdiami/proxyeth" > gitpath.txt
 gitpath=$(head -1 gitpath.txt)
 
@@ -20,8 +22,11 @@ python2.7 -V
 sudo apt install python3 -y
 sudo apt-get install -y python-twisted
 
-cd /root/eth-proxy
+cd /root
+wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/view.sh
+chmod +x view.sh
 
+cd /root/eth-proxy
 wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/eth-proxy.conf
 wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/run-proxy.sh
 wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/addcron.sh
