@@ -25,6 +25,7 @@ sudo apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev libsql
 
 cd /usr/src
 PythonVersion="Python-2.7.18"
+#sudo wget for aws instance
 wget https://www.python.org/ftp/python/2.7.18/$PythonVersion.tgz
 sudo tar xzf $PythonVersion.tgz
 cd $PythonVersion/
@@ -38,7 +39,10 @@ echo ""
 #sudo apt install -y python3
 sudo apt-get install -y python-twisted
 sleep 3
+#cd /home/ubuntu/eth-proxy for aws
 cd /root/eth-proxy
+
+# Edit addcron.sh for aws /root/ to /home/ubuntu
 ./addcron.sh
 ./run-proxy.sh
 
