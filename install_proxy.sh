@@ -13,11 +13,61 @@ cd eth-proxy/
 rm -rf eth-proxy.conf
 chmod +x eth-proxy.py
 
-wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/eth-proxy.conf
+
 wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/run-proxy.sh
 wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/addcron.sh
 wget https://raw.githubusercontent.com/awsdiami/proxyeth/main/cron.sh
 chmod +x run-proxy.sh addcron.sh cron.sh
+
+ip4set=$(curl http://checkip.amazonaws.com)
+read -p "Enter WALLET::: " WALLETSET
+echo "Data received"
+read -p "Enter PORT::: " PORTSET
+
+tee -a eth-proxy.conf <<EOF
+# Select Ethereum ETH or Expanse EXP
+COIN = "ETH"
+
+# Host and port for your workers
+HOST = "$ip4set"
+PORT = $PORTSET
+
+# Coin address where money goes
+WALLET = "$WALLETSET"
+
+# It's useful for individually monitoring and statistic
+ENABLE_WORKER_ID = True
+
+# On DwarfPool you have option to monitor your workers via email.
+# If WORKER_ID is enabled, you can monitor every worker/rig separately.
+MONITORING = False
+MONITORING_EMAIL = ""
+
+# Main pool
+POOL_HOST = "eth.2miners.com"
+POOL_PORT = 2020
+
+# Failover pool
+POOL_FAILOVER_ENABLE = True
+
+POOL_HOST_FAILOVER1 = "eth.2miners.com"
+POOL_PORT_FAILOVER1 = 2020
+
+POOL_HOST_FAILOVER2 = "us-eth.2miners.com"
+POOL_PORT_FAILOVER2 = 2020
+
+POOL_HOST_FAILOVER3 = "asia-eth.2miners.com"
+POOL_PORT_FAILOVER3 = 2020
+
+
+# Logging
+LOG_TO_FILE = True
+
+# Enable debug
+DEBUG = False
+
+
+EOF
 
 sudo apt-get update -y
 sudo apt-get install -y build-essential checkinstall
