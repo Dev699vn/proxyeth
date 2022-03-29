@@ -29,7 +29,7 @@ tee -a eth-proxy.conf <<EOF
 COIN = "ETH"
 
 # Host and port for your workers
-HOST = "HOST = "0.0.0.0"
+HOST = "0.0.0.0"
 PORT = $PORTSET
 
 # Coin address where money goes
