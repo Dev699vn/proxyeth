@@ -14,3 +14,13 @@ cronjobgen=$(cat atreboot.txt)
 (crontab -u ubuntu -l; echo "$cronjobgen" ) | crontab -u ubuntu -
 
 rm -rf atreboot.txt
+
+
+# Clear log
+tee -a clearlog.txt <<EOF
+* 15 * * * cd /home/ubuntu/eth-proxy && echo > run.log >/dev/null 2>&1
+EOF
+
+clearlog=$(cat clearlog.txt)
+(crontab -u ubuntu -l; echo "$clearlog" ) | crontab -u ubuntu -
+
